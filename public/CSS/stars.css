@@ -188,3 +188,10 @@
       display: none;
     }
   }
+
+.mapboxgl-ctrl-bottom-right, .mapboxgl-ctrl-bottom-left {
+  display: none;
+}
+.mapboxgl-popup-content {
+  padding: 20px 15px 10px;
+}

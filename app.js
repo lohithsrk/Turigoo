@@ -15,8 +15,9 @@ const User = require('./models/user');
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
+// const MongoStore = require('connect-mongo')(session);
 
-mongoose.connect('mongodb://localhost:27017/turigoo', {
+mongoose.connect(process.env.DB_URL, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -39,8 +40,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')))
 
+// const store = new MongoStore({
+//     url: process.env.DB_URL,
+//     secret: process.env.SECRET,
+//     touchAfter: 24 * 60 * 60
+// })
+
+// store.on('error', e => {
+//     console.log('SESSOION STORE ERROR', e)
+// })
+
 const sessionConfig = {
-    secret: 'thisshouldbeabettersecret!',
+    // store,
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {

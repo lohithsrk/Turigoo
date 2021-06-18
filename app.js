@@ -17,7 +17,7 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 // const MongoStore = require('connect-mongo')(session);
 
-mongoose.connect(process.env.DB_URL, {
+mongoose.connect(process.env.DB_URL || 'mongodb://localhost:27017/turigoo', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -52,7 +52,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 const sessionConfig = {
     // store,
-    secret: process.env.SECRET,
+    secret: process.env.SECRET || 'thisshouldbeabettersecret!',
     resave: false,
     saveUninitialized: true,
     cookie: {

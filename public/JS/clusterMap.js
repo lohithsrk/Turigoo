@@ -1,6 +1,6 @@
 mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
-    container: 'map',
+    container: 'clustre-map',
     style: 'mapbox://styles/mapbox/light-v10',
     center: [-103.59179687498357, 40.66995747013945],
     zoom: 3
@@ -102,7 +102,7 @@ map.on('load', function () {
     // description HTML from its properties.
     map.on('click', 'unclustered-point', function (e) {
         const coordinates = e.features[0].geometry.coordinates.slice();
-        const {popupMarkup} = e.features[0].properties.popupMarkup;
+        const {popupMarkup} = e.features[0].properties;
         // Ensure that if the map is zoomed out such that
         // multiple copies of the feature are visible, the
         // popup appears over the copy being pointed to.
@@ -123,3 +123,5 @@ map.on('load', function () {
         map.getCanvas().style.cursor = '';
     });
 });
+
+map.addControl(new mapboxgl.NavigationControl());

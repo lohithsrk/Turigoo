@@ -37,7 +37,7 @@ const seedDB = async () => {
             },
             image: [
                 {
-                  url: "https://res.cloudinary.com/dhkncompx/image/upload/v1623903537/Turigoo/fweehdijogk7heb1vess.jpg",
+                  url: "https://www.treehugger.com/thmb/nZJNVsrHSBcaEVNnrIyVIj9IMKM=/2121x1414/filters:fill(auto,1)/GettyImages-1273584292-cbcd5f85f4c646d58f7a7fa158dcaaeb.jpg",
                   filename: "Turigoo/fweehdijogk7heb1vess"
                 },
                 {
